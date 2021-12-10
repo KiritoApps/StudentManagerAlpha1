@@ -95,7 +95,14 @@ void GetScore()
 	scanf("%d",&StuNum);
 	for(i=0;i<StuNum;i++)
 	{
+		printf("Input NO.%d Student Socre: \n",i+1);
 		scanf("%d",&Student[i]);
+		while((Student[i] < 0) || (Student[i] > 100))
+		{
+			printf("Not in scale !\n");
+			printf("Input NO.%d Student Socre: \n",i+1);
+			scanf("%d",&Student[i]);
+		}
 	}
 	WaitForUser();
 }
@@ -128,7 +135,6 @@ void SortByMark()
 				SortedScore[j] = SortedScore[j+1];
 				SortedScore[j+1] = Temp;
 			}
-			
 		}
 	}
 	printf("NO.				Score\n");
@@ -155,6 +161,12 @@ void FindStuInfo()
 	system("cls");
 	printf("Input Student Number: ");
 	scanf("%d",&a);
+	while(a > StuNum)
+	{
+		printf("Not in scale !\n");
+		printf("Input New Number:");
+		scanf("%d",&a);
+	}
 	Temp = Student[a-1];
 	for(i=0;i<StuNum;i++)
 	{
